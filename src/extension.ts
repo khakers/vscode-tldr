@@ -30,7 +30,9 @@ function newTldrHoverProvider(
       let currentTokenRange = document.getWordRangeAtPosition(position);
       if (currentTokenRange !== undefined && currentTokenRange.isSingleLine) {
         let currentToken = document.getText(currentTokenRange);
+        console.log('token: '+currentToken);
         const pageMarkdown = repository.getMarkdown(currentToken);
+        // console.log(pageMarkdown)
         return pageMarkdown.then(
           markdown => new vscode.Hover(markdown),
           rejected => null
@@ -45,6 +47,7 @@ function registerHoverWithSupportedLanguages(
   supportedEditors: string[],
   provider: vscode.HoverProvider
 ) {
+  console.log('extension init');
   supportedEditors.forEach(lang => {
     const selectors = [
       { scheme: "untitled", language: lang },

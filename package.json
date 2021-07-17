@@ -2,23 +2,18 @@
   "name": "vscode-tldr",
   "displayName": "tl;dr pages",
   "description": "Hover for commands using simplified and community-driven man pages.",
-  "version": "1.0.0",
-  "publisher": "bmuskalla",
-  "author": {
-    "name": "Benjamin Muskalla",
-    "email": "b.muskalla@gmail.com"
-  },
+  "version": "2.0.0-beta.1",
+  "publisher": "khakers",
   "license": "SEE LICENSE IN LICENSE",
   "engines": {
     "vscode": "^1.33.0"
   },
-  "icon": "images/books.png",
+  "icon": "images/tldr-books.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bmuskalla/vscode-tldr.git"
+    "url": "https://github.com/khakers/vscode-tldr.git"
   },
-  "bugs": "https://github.com/bmuskalla/vscode-tldr/issues",
-  "homepage": "https://github.com/bmuskalla/vscode-tldr/blob/master/README.md",
+  "homepage": "https://github.com/khakers/vscode-tldr/blob/master/README.md",
   "galleryBanner": {
     "color": "#313131",
     "theme": "dark"
@@ -52,9 +47,9 @@
     "isomorphic-fetch": "^2.2.1"
   },
   "devDependencies": {
+    "@types/node": "^10.12.21",
+    "tslint": "^5.20.1",
     "typescript": "^3.3.1",
-    "vscode": "^1.1.28",
-    "tslint": "^5.12.1",
-    "@types/node": "^10.12.21"
+    "vscode": "^1.1.28"
   }
 }
