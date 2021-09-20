@@ -1,0 +1,36 @@
+
+name: Generate VSIX package
+
+on:
+  push:
+    branches:
+      - master
+      - development
+  pull_request:
+    branches:
+      - master
+       - development
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.4.0
+        with:
+          # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm
+          cache: npm
+          # Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
+          cache-dependency-path: ./package-lock.json
+      - name: install vsce
+        run: npm install -g vsce
+      - name: build vsix package
+        run: vsce package
+      - name: upload artifact
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: vsix-package
+          path: "*.vsix"
