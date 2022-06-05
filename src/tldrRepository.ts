@@ -1,5 +1,7 @@
 import { MarkdownString, commands, window } from "vscode";
 import { platform } from "os";
+import fetch from "node-fetch";
+
 
 export interface TldrFetcher {
   fetch(command: TldrPage): Thenable<string>;
@@ -26,8 +28,6 @@ export enum TldrPlatform {
   SunOS = "sunos",
   Windows = "windows",
 }
-
-const fetch = require("isomorphic-fetch");
 
 class TldrIndex {
   // Array of all found TLDR pages for the available platforms

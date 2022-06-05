@@ -1,7 +1,7 @@
 import { TldrFetcher, TldrPage } from "./TldrRepository";
 import { Memento, window } from "vscode";
 import { pathToFileURL } from "url";
-const fetch = require("isomorphic-fetch");
+import fetch from "node-fetch";
 
 export class CachingFetcher implements TldrFetcher {
   static readonly cacheKeyPrefix = "tldrfetcher.cache.";
